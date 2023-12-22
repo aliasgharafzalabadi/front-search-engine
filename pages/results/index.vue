@@ -7,6 +7,6 @@
 const route = useRoute();
 
 onMounted(() =>{
-    console.log(route.query.q)
+    console.log(route.query)
 })
 </script>

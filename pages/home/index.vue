@@ -8,12 +8,12 @@
                 </v-text-field>
                 <v-row justify="center" class="mt-5">
                     <v-col cols="2">
-                        <v-btn color="success" rounded="xl" size="large" @click="handelQuery">
+                        <v-btn color="success" rounded="xl" size="large" @click="handelQuery()">
                             Search
                         </v-btn>
                     </v-col>
                     <v-col cols="3">
-                        <v-btn color="primary" rounded="xl" size="large"  @click="handelQuery">
+                        <v-btn color="primary" rounded="xl" size="large"  @click="handelQuery(true)">
                             Feeling Lucky
                         </v-btn>
                     </v-col>
@@ -27,8 +27,8 @@ const router = useRouter();
 
 const query = ref()
 
-const handelQuery = () =>{
-    router.push({path:'/results', query: {q : query.value}})
+const handelQuery = (byChance = false) =>{
+    router.push({path:'/results', query: {q : query.value , chance: byChance}})
 }
 </script>
   
