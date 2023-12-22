@@ -1,9 +1,9 @@
 export default defineNuxtRouteMiddleware((to, from) => {
 
     try {
-        if (to.fullPath !== '/home') {
+        if (to.fullPath === '/') {
             
-            if(to.fullPath !== '/results') return navigateTo('/home')
+         return navigateTo('/home')
 
             
         }
