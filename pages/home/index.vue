@@ -2,8 +2,8 @@
     <v-container class="d-flex justify-center align-center" style="height: 90vh;">
         <v-row justify="center">
             <v-col cols="12" md="8">
-                <v-text-field v-model="query" class="mx-auto" label="Search" hide-details="auto" outlined dense flat solo solo-inverted
-                    rounded color="success" variant="solo-inverted" prepend-inner-icon="mdi-magnify"
+                <v-text-field  @keyup.enter="handelQuery()" v-model="query" class="mx-auto" label="Search" hide-details="auto" outlined dense flat solo solo-inverted
+                    rounded color="error" variant="solo-inverted" prepend-inner-icon="mdi-magnify"
                     style="max-width: 400px; width: 100%;">
                 </v-text-field>
                 <v-row justify="center" class="mt-5">
