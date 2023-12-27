@@ -28,7 +28,7 @@ const router = useRouter();
 const query = ref()
 
 const handelQuery = (byChance = false) =>{
-    router.push({path:'/results', query: {q : query.value , chance: byChance}})
+    router.push({path:'/results', query: {query : query.value , chance: byChance}})
 }
 </script>
   
