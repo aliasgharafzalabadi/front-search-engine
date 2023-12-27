@@ -37,6 +37,6 @@ const getData = async () => {
 
     console.log(data)
 
-    docks.value = data
+    docks.value = data.value
 }
 </script>
