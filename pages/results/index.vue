@@ -8,6 +8,10 @@
         </v-col>
     </v-row>
     <div class="d-flex flex-column align-center mt-4">
+        <div v-if="isQueryFixed">
+            <div class="fix">Did you mean:</div>
+            <div>{{ fixedQuery }}</div>
+        </div>
         <template v-for="(dock, index) in docks" :key="index">
             <v-card width="600" loading :title="dock.title" :text="dock.summary" variant="tonal" link></v-card>
         </template>
@@ -15,6 +19,9 @@
 </template>
 <script setup>
 const route = useRoute();
+const router = useRouter();
+const fixedQuery = ref("")
+const isQueryFixed= ref(false)
 const query = ref({
     query: "",
     chance: ""
@@ -31,6 +38,8 @@ onMounted(async () => {
 
 const getData = async () => {
 
+    router.push({path:'/results', query: {query : query.value , chance: byChance}})
+
     const { data } = await useFetch('/', {
         baseURL: "http://127.0.0.1:5000",
         mode: 'cors',
@@ -45,7 +54,7 @@ const getData = async () => {
 
     console.log(data)
 
-    docks.value = data.value
+    docks.value = data.value[0]
 }
 </script>
 <style scoped>
@@ -54,6 +63,11 @@ const getData = async () => {
     justify-content: flex-end;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+.fix {
+    color: red;
+    display: flex;
 }
 
 .v-card {
