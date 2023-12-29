@@ -25,7 +25,7 @@ const getData = async () => {
 
     const { data } = await useFetch('/', {
         baseURL: "http://127.0.0.1:5000",
-        mode: 'no-cors',
+        mode: 'cors',
         headers: {
             'Accept': 'application/json',
             'X-Requested-With': 'XMLHttpRequest',
