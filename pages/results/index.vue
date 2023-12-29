@@ -23,8 +23,8 @@
 <script setup>
 const route = useRoute();
 const router = useRouter();
-const fixedQuery = ref("")
-const isQueryFixed= ref(false)
+const spellCheck = ref("")
+const count = ref()
 const time = ref()
 const query = ref({
     query: "",
@@ -34,6 +34,7 @@ const docks = ref([])
 onMounted(async () => {
 
     setTimeout(() => {
+        isQueryFixed.value = false
         query.value = route.query
         getData()
     })
@@ -59,10 +60,10 @@ const getData = async () => {
 
     console.log(data)
 
-    docks.value = data.value[0]
-    fixedQuery.value = data.value[1]
-    time.value = data.value[2]
-    isQueryFixed.value = data.value[3]
+    docks.value = data.value.docks
+    time.value = data.value.time
+    spellCheck.value = data.value.spellCheck
+    count.value = data.value.count
 }
 
 const openlink = (url)=>{
