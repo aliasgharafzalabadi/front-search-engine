@@ -8,7 +8,7 @@
         </v-col>
     </v-row>
     <div>
-        About  {{ query.query.length }}  results in   {{ time}}  ms
+        About  {{ size }}  results in   {{ time}}  ms
     </div>
     <div class="d-flex flex-column align-center mt-4">
         <div v-if="isQueryFixed">
@@ -26,6 +26,7 @@ const router = useRouter();
 const fixedQuery = ref("")
 const isQueryFixed= ref(false)
 const time = ref()
+const size = ref()
 const query = ref({
     query: "",
     chance: ""
@@ -63,6 +64,7 @@ const getData = async () => {
     fixedQuery.value = data.value[1]
     time.value = data.value[2]
     isQueryFixed.value = data.value[3]
+    size.value = data.value[4]
 }
 
 const openlink = (url)=>{
